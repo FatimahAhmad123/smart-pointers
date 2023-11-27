@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <map>
 
 namespace rakurai::training
 {
@@ -18,7 +17,6 @@ namespace rakurai::training
 			float cgpa;
 		};
 
-		std::map<std::string, int> result;
 		student_record data;
 
 	public:
@@ -33,5 +31,6 @@ namespace rakurai::training
 		void set_cgpa(float cgpa);
 		float get_cgpa() const;
 	};
-}
+};
+
 #endif
