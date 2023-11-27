@@ -1,23 +1,27 @@
 #include <iostream>
-#include "student.h"
+#include "student.hpp"
+#include "database.hpp"
 
 int main()
 {
-	student student;
-	student.set_roll_no("12345");
-	student.set_age(20);
-	student.set_cgpa(3.8);
 
-	student.set_subject_marks("English", 91);
-	student.set_subject_marks("Urdu", 57);
-	student.set_subject_marks("Math", 95);
-	student.set_subject_marks("Physics", 87);
+	rakurai::training::Database database;
 
-	student.print_all_marks();
+	std::shared_ptr<rakurai::training::student> studentPtr = database.get_student_reference("Ali");
 
-	std::cout << "Roll No: " << student.get_roll_no() << std::endl;
-	std::cout << "Age: " << student.get_age() << std::endl;
-	std::cout << "CGPA: " << student.get_cgpa() << std::endl;
+	if (studentPtr)
+	{
+
+		std::cout << "Student Info:\n";
+		std::cout << "Name: " << studentPtr->get_name() << "\n";
+		std::cout << "Roll No: " << studentPtr->get_roll_no() << "\n";
+		std::cout << "Age: " << studentPtr->get_age() << "\n";
+		std::cout << "CGPA: " << studentPtr->get_cgpa() << "\n";
+	}
+	else
+	{
+		std::cout << "Student not found.\n";
+	}
 
 	return 0;
 }
