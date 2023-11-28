@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "student.hpp"
 #include "database.hpp"
 
@@ -59,8 +60,8 @@ int main()
 		std::cout << "Printing using the print_student_record function: " << std::endl;
 		print_student_record(std::move(studentUniquePtr)); // have to use move because the unique pointer doesn't allow copy, it only allows move
 														   // because of single ownership of the pointer. After moving, the ownership of the pointer is transfered to the function.
-		// After this the pointer belongs to the function and cannot be used in main.
-		// without using move you get compilation errors.
+														   // After this the pointer belongs to the function and cannot be used in main.
+														   // without using move you get compilation errors.
 	}
 	else
 	{

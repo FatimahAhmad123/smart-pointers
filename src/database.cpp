@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <memory>
 #include "database.hpp"
 
 namespace rakurai::training
@@ -26,7 +26,7 @@ namespace rakurai::training
 				{
 					std::cout << "The address of entry is: " << &s << std::endl;
 					return std::make_shared<student>(s); // make_shared creates a dynamically allocated copy of s object (on the heap)
-					// return statement returns this pointer
+														 // return statement returns this pointer
 				}
 				catch (const std::bad_alloc)
 				{
